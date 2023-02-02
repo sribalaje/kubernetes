@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github
+spec:
+  selector:
+    matchLabels:
+      app: github
+  template:
+    metadata:
+      labels:
+        app: github
+    spec:
+      containers:
+      - name: github
+        image: nginx
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
